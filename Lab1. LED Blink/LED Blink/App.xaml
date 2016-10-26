@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="LED_Blink.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LED_Blink"
+    RequestedTheme="Light">
+
+</Application>
