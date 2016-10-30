@@ -24,15 +24,10 @@ namespace LED_Bot
             if (activity.Type == ActivityTypes.Message)
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-
+                Common.activity = activity; Common.connector = connector;
                 var txt = activity.Text.ToLower();
-                var res = "Oops!";
-                if (txt.StartsWith("hostname="))
-                {
-                    Store.RegisterClient(activity.From.Id, txt);
-                    res = "Hub registered!";
-                }
-                else if (txt == "on")
+                var res;
+                if (txt == "on")
                 {
                     res = await Process(activity.From.Id, true);
                 }
@@ -55,12 +50,10 @@ namespace LED_Bot
 
         private async Task<string> Process(string id, bool v)
         {
-            var hcs = Store.GetConnString(id);
-            if (hcs == null) return "Hub not configured, please send me connection string";
-            var hub = ServiceClient.CreateFromConnectionString(hcs);
+            var hub = ServiceClient.CreateFromConnectionString(Common.HubConnString);
             var state = v ? "on" : "off";
-            await hub.SendAsync("RPi", new Message(Encoding.UTF8.GetBytes(state)));
-            return state;
+            await hub.SendAsync(Common.DeviceId, new Message(Encoding.UTF8.GetBytes(state)));
+            return $"Switched {state}";
         }
 
         private Activity HandleSystemMessage(Activity message)

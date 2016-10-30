@@ -1,6 +1,31 @@
 #DevCon School 2016: IoT-интенсив 
 
-# Лабораторная 1: Hello, LED. Мигание светодиодом.
+# Лабораторная 3: Hello, LED. Мигание светодиодом.
+
+
+Приём сообщений с IoT Hub хорошо описан [в этой статье](https://blogs.windows.com/buildingapps/2015/12/09/windows-iot-core-and-azure-iot-hub-putting-the-i-in-iot/#XaVrtzWBatUCpe0B.97)
+
+Вот как выглядит код для приёма сообщений из IoT Hub:
+
+```
+    EventHubClient cli = EventHubClient.CreateFromConnectionString(HubConnString, "messages/events");
+
+    var runtimeInfo = await cli.GetRuntimeInformationAsync();
+    foreach (var p in runtimeInfo.PartitionIds)
+    {
+        var rec = await cli.GetDefaultConsumerGroup().CreateReceiverAsync(p);
+        Func<Task> f = async () =>
+        {
+            while (true)
+            {
+                var x = await rec.ReceiveAsync();
+                var s = Encoding.UTF8.GetString(x.GetBytes());
+                Console.WriteLine(s);
+            }
+        };
+        f();
+    }
+```
 
 Начнём с универсального приложения, созданного в предыдущей лабораторной.
 

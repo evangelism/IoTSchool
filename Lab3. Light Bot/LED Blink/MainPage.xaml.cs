@@ -61,8 +61,7 @@ namespace LED_Blink
 
         private async void Blink(object sender, object e)
         {
-            state = !state;
-            LED(state);
+            LED(!state);
             await Send(state ? "on" : "off");
         }
 
@@ -78,6 +77,7 @@ namespace LED_Blink
             {
                 pin.Write(state ? GpioPinValue.High : GpioPinValue.Low);
             }
+            this.state = state;
         }
 
         private async Task Receive()
@@ -94,5 +94,6 @@ namespace LED_Blink
                 }
             }
         }
+
     }
 }

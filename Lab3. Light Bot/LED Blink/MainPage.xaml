@@ -8,6 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Ellipse x:Name="vled" Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Ellipse x:Name="vled" Height="40" Width="40" Fill="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="Blink"/>
     </Grid>
 </Page>
