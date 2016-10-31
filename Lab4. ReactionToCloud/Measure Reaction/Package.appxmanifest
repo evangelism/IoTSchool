@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="8f108dcb-781f-4856-a651-3a25a5f5d1ee"
+    Name="ade8a796-1b7a-44eb-9807-23b9c946d796"
     Publisher="CN=dmitryso"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="8f108dcb-781f-4856-a651-3a25a5f5d1ee" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ade8a796-1b7a-44eb-9807-23b9c946d796" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Lab5. ReactionToCloud</DisplayName>
+    <DisplayName>Lab2. Measure Reaction</DisplayName>
     <PublisherDisplayName>dmitryso</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Lab5.ReactionToCloud.App">
+      EntryPoint="Lab2.Measure_Reaction.App">
       <uap:VisualElements
-        DisplayName="Lab5. ReactionToCloud"
+        DisplayName="Lab2. Measure Reaction"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Lab5. ReactionToCloud"
+        Description="Lab2. Measure Reaction"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
