@@ -26,7 +26,7 @@ namespace LED_Bot
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
                 Common.activity = activity; Common.connector = connector;
                 var txt = activity.Text.ToLower();
-                var res;
+                string res;
                 if (txt == "on")
                 {
                     res = await Process(activity.From.Id, true);
